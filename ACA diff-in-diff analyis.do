@@ -1,10 +1,7 @@
 ************************ MARIE PARENT SAMPLE .do FILE *************************
-/* submitted as part of an application for a Research Analyst position
-in the Global Economy and Development program at the Brookings Institution. */
-
 /* About this file: This file is an edited version of a similar file that was
 part of a group project for a course at the Goldman School of Public Policy at
-UC Berkeley. We conducted a differnce-in-differences analysis to examine any 
+UC Berkeley. We conducted a difference-in-differences analysis to examine any
 effect of the Affordable Care Act on insurance rates for young adults. */
 
 * Data source: IPUMS Current Population Survey
@@ -12,7 +9,7 @@ effect of the Affordable Care Act on insurance rates for young adults. */
 
 clear
 cls
-set more off  
+set more off
 global path="https://github.com/marieparent/ACA_DiffInDiff/raw/master"
 use "$path/aca_data_march_cps.dta"
 
@@ -86,7 +83,7 @@ summarize
 
 /* Regression */
 logit pvt_insurance year elig year_elig if year<2010
-/* Theoretically, the coefficient on year*elig should be statistically insignificantly different from 0 */ 
+/* Theoretically, the coefficient on year*elig should be statistically insignificantly different from 0 */
 
 collapse age female white black other hispanic pvt_insurance, by(year elig)
 
